@@ -145,10 +145,13 @@ searchBtn.addEventListener('click', () => {
   const value = parseInt(searchInput.value);
   if (!isNaN(value)) {
     const found = bst.search(value);
+    console.log(`Searching for value: ${value}`);
     if (found) {
       console.log(`Value ${value} found in the BST`);
+      alert(`Value ${value} found in the BST`);
     } else {
       console.log(`Value ${value} not found in the BST`);
+      alert(`Value ${value} not found in the BST`);
     }
   }
 });
@@ -156,6 +159,8 @@ searchBtn.addEventListener('click', () => {
 inorderBtn.addEventListener('click', () => {
   const result = bst.inorder();
   console.log('Inorder traversal:', result);
+  // Display inorder traversal result
+  alert(`Inorder traversal: ${result.join(', ')}`);
   updateBSTVisualization();
 });
 
@@ -163,7 +168,7 @@ function updateBSTVisualization() {
   // Clear the existing visualization from bstContainer
   bstContainer.innerHTML = '';
 
-  // Simulate BST visualization (replace with actual BST structure traversal)
+  // Create visualization for the BST
   if (bst.root) {
     bstContainer.appendChild(createNodeElement(bst.root));
   } else {
@@ -188,5 +193,3 @@ function createNodeElement(node) {
 
   return nodeElement;
 }
-
-
